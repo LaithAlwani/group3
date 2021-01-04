@@ -1,41 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="uk-background-muted">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.1/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.1/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.1/dist/js/uikit-icons.min.js"></script>
+
+    <title>Movie App</title>
   </head>
-  <body>
-    <header>
-      <h3>Movie Search App</h3>
-      <ul>
-        <li>About</li>
-        <li>Contact</li>
-      </ul>
+  <body >
+    <!-- Hearder -->
+    <header class="uk-margin" uk-navbar>
+      <div class="uk-nabar-left">
+        <a href="" class="uk-logo uk-navbar-item">Movie Search App</a> 
+      </div>
+      <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+          <li class="uk-navbar-item" ><a href=""uk-toggle="target: #search">Search</a></li>
+        </ul>
+      </div>
+      
     </header>
-    <section>
-      <section>
-        <label for="">Movie Name</label>
-        <input type="text" />
-        <button>Search</button>
-        <section>
-          <label for="">Genre</label>
-          <input type="text" />
-          <label for="">Rating</label>
-          <input type="text" />
-          <label for="">Year</label>
-          <input type="text" />
-        </section>
-        <aside>
-          <img src="" alt="" />
-        </aside>
+    <!-- Input and Gify -->
+    <main class="uk-container">
+      <section class="uk-text-center" id="welcome"> 
+        <h1>Welcome  to Movie search</h1>
+        <p>looking to get more info about a movie press the search button in the navbar to begin</p>  
       </section>
-      <section>
-        <section>
-          <img src="" alt="" />
-          <aside>
-            <h4>Movie Information</h4>
-            <p>Movie title</p>
+
+      <section id="search" uk-offcanvas="overlay:true; mode:reveal" uk-offcanvas>
+        <div class="uk-offcanvas-bar uk-text-center">
+          <button class="uk-offcanvas-close" type="button" uk-close></button>
+          <h3> Search bar</h3>
+          <form >
+            
+            <label for="">Movie Name</label>
+            <input type="text" id="name" class="uk-input"/>
+          
+            <label for="">Genre</label>
+            <select type="text" id="genre" class="uk-select ">
+              <option value="" disabled selected>Choose a Genre</option>
+              <option value="Action">Action</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Comedy">Comedy</option>
+              <option value="Drama">Drama</option>
+              <option value="Horror">Horror</option>
+              <option value="Musical">Musical</option>
+              <option value="Thriller">Thriller</option>
+            </select> 
+          
+          
+            <label for="">Rating</label>
+            <select type="text" id="rating" class="uk-select ">
+              <option value="" disabled selected>Choose Value</option>
+              <option value="6">6+</option>
+              <option value="7">7+</option>
+              <option value="8">8+</option>
+              <option value="9">9+</option>
+            </select>
+          
+          
+            <label for="">Year</label>
+            <input type="text" id="year"class="uk-input "/>  
+            
+            <div class="uk-margin">
+              <button class="uk-button uk-button-default uk-width-1-1">Search</button>
+            </div>
+            
+          </form>
+        </div>
+        
+      </section>
+      <section class="uk-margin uk-child-width-1-1@s "> 
+        
+        
+
+      </section>
+      <hr >
+      <section class="uk-margin uk-grid-collapse" uk-grid>
+        <section class="uk-width-2-3@s uk-grid-small" uk-grid>
+          <div class="uk-width-2-5@s uk-text-center">
+            <img src="https://resizing.flixster.com/9IEhzeMTcX3yu3jXwveYxlf8Hws=/206x305/v1.bTsxMTE2OTc2NDtqOzE4NzE0OzEyMDA7ODAwOzEyMDA" alt="" />
+          </div>
+          
+          <div class="uk-width-3-5@s ">
+            <h3 class="">Movie Title</h3>
             <p>Rating</p>
             <p>Genre</p>
             <p>Year</p>
@@ -45,18 +99,47 @@
               ducimus quo neque dignissimos, recusandae expedita doloremque
               assumenda suscipit magnam veritatis reiciendis sit?
             </p>
-          </aside>
+          </div>
         </section>
-        <section>
-          <h4>Recent Search</h4>
-        </section>
-        <section>
-          <h3>Movie based on <span>Genre</span></h3>
-        </section>
+        <aside class="uk-text-center uk-width-1-3@s">
+          <img src="https://media1.tenor.com/images/3728ba287fead848e17828a9038df798/tenor.gif?itemid=7552256" alt="" />
+        </aside>
+        
+        
       </section>
-    </section>
-    <footer>
-      <p>@copy Copyright 2020.</p>
+      <hr>
+      <section class="uk-text-center">
+        <h3>Suggested Movies</h3>
+        <div class="  uk-text-center uk-margin" uk-grid>
+          <div class="uk-width-3-4@m uk-child-width-1-3@s "uk-grid>
+            <a href=""><img src="https://resizing.flixster.com/9IEhzeMTcX3yu3jXwveYxlf8Hws=/206x305/v1.bTsxMTE2OTc2NDtqOzE4NzE0OzEyMDA7ODAwOzEyMDA" alt=""></a>
+            <a href=""><img src="https://resizing.flixster.com/9IEhzeMTcX3yu3jXwveYxlf8Hws=/206x305/v1.bTsxMTE2OTc2NDtqOzE4NzE0OzEyMDA7ODAwOzEyMDA" alt=""></a>
+            <a href=""><img src="https://resizing.flixster.com/9IEhzeMTcX3yu3jXwveYxlf8Hws=/206x305/v1.bTsxMTE2OTc2NDtqOzE4NzE0OzEyMDA7ODAwOzEyMDA" alt=""></a>
+            <a href=""><img src="https://resizing.flixster.com/9IEhzeMTcX3yu3jXwveYxlf8Hws=/206x305/v1.bTsxMTE2OTc2NDtqOzE4NzE0OzEyMDA7ODAwOzEyMDA" alt=""></a>
+            <a href=""><img src="https://resizing.flixster.com/9IEhzeMTcX3yu3jXwveYxlf8Hws=/206x305/v1.bTsxMTE2OTc2NDtqOzE4NzE0OzEyMDA7ODAwOzEyMDA" alt=""></a>
+          </div>
+          
+          <aside class="uk-width-1-4@m">  
+            <h3 class="uk-text-center">Recent Search</h3>
+            <p class="recent-movie">Movie</p>
+            <p class="recent-movie">Movie</p>
+            <p class="recent-movie">Movie</p>
+            <p class="recent-movie">Movie</p>
+            <p class="recent-movie">Movie</p>
+          </aside>
+        </div>
+
+        
+      </section>
+    </main>
+    <footer class="uk-text-center">
+      <p class="uk-text-small">@copy Copyright 2020.</p>
     </footer>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" 
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" 
+    crossorigin="anonymous"></script>
+    <!-- JS -->
+    <script src="assets/js/script.js"></script>
   </body>
 </html>
