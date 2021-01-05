@@ -1,3 +1,8 @@
+#giphy{
+    width: 50%;
+    margin: 2em auto;
+    display: none;
+}
 .recent-movie{
     margin:0;
     padding-left: 5px;
