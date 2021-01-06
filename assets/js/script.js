@@ -1,4 +1,60 @@
-//pass in movie name from users input
+$(document).ready(function () {
+  var apikey = "trilogy";
+  var movie;
+  var movieUrl;
+
+  $("#search").on("click", function (e) {
+    //e.preventDefault();
+    movie = $("#name").val();
+    console.log(movie);
+    getGiphy(movie);
+    movieUrl = "http://www.omdbapi.com/?apikey=" + apikey + "&s=" + movie;
+
+    $.ajax({
+      url: movieUrl,
+      method: "GET",
+    }).then(function (data) {
+      //console.log(data);
+      //console.log(data.Search[0].Poster);
+      $("#imageSrc").attr("src",data.Search[0].Poster);
+      getDetails(data.Search[0].imdbID);
+      displayMovie(data);
+
+
+    });
+  });
+
+  function displayMovie(movies)
+  {
+    var $movieDisplay = $("#movieDisplay");
+    var movieTitles = movies.Search;
+
+    for(var i = 1; i < movieTitles.length; i++){
+      var $moviePoster = $("<img>");
+      $moviePoster.attr("src", movieTitles[i].Poster);
+      $movieDisplay.append($moviePoster);
+    }
+
+  }
+  function getDetails(imdb){
+    var movieDetUrl = "http://www.omdbapi.com/?apikey=" + apikey + "&i=" +imdb;
+
+    $.ajax({
+      url: movieDetUrl,
+      method: "GET",
+    }).then(function (data) {
+      console.log(data);
+      $("#title").text(data.Title);
+      $("#ratings").text(data.imdbRating);
+      $("#genres").text(data.Genre);
+      $("#years").text(data.Year);
+      $("#plot").text(data.Plot);
+      //console.log(data.Search[0].Poster);
+     
+    });
+
+  }
+  //pass in movie name from users input
 function getGiphy(movie)
 {
     $("#giphy-slideshow").text("");
@@ -24,3 +80,5 @@ function renderGiphy(response){
         $("#giphy").css("display","block");
     }
 }
+
+});
