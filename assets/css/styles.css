@@ -13,3 +13,21 @@
     margin-bottom: 0;
     padding:5px
 }
+
+#movieDisplay section img{
+    width: 250px;
+    height: 350px;
+}
+
+#movieDisplay section img:hover{
+    cursor:pointer;
+}
+
+#movieDisplay section span{
+    display: none;
+}
+
+#imageSrc {
+    width: 240px;
+    height: 344px;
+}
