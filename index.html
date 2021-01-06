@@ -78,19 +78,16 @@
 
       <section id="movie-info" class="uk-margin uk-grid-collapse" uk-grid>
           <div class="uk-width-2-5@s uk-text-center">
-            <img src="https://resizing.flixster.com/9IEhzeMTcX3yu3jXwveYxlf8Hws=/206x305/v1.bTsxMTE2OTc2NDtqOzE4NzE0OzEyMDA7ODAwOzEyMDA" alt="" />
+            <img id="imageSrc"  alt="movie_poster" />
           </div>
           
           <div class="uk-width-3-5@s ">
-            <h3 class="">Movie Title</h3>
-            <p>Rating</p>
-            <p>Genre</p>
-            <p>Year</p>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Consectetur quaerat esse blanditiis et aut ipsa, facere beatae
-              ducimus quo neque dignissimos, recusandae expedita doloremque
-              assumenda suscipit magnam veritatis reiciendis sit?
+            <h3 class="">Movie Title: <span id="title"></span></h3>
+            <p>Rating: <span id="ratings"></span></p>
+            <p>Genre: <span id="genres"></span></p>
+            <p>Year: <span id="years"></span></p>
+            <p id="plot">
+             
             </p>
           </div>  
       </section>
@@ -109,12 +106,8 @@
       <section class="uk-text-center">
         <h3>Suggested Movies</h3>
         <div class="  uk-text-center uk-margin" uk-grid>
-          <div class="uk-width-3-4@m "uk-grid>
-            <a href=""><img src="https://resizing.flixster.com/9IEhzeMTcX3yu3jXwveYxlf8Hws=/206x305/v1.bTsxMTE2OTc2NDtqOzE4NzE0OzEyMDA7ODAwOzEyMDA" alt=""></a>
-            <a href=""><img src="https://resizing.flixster.com/9IEhzeMTcX3yu3jXwveYxlf8Hws=/206x305/v1.bTsxMTE2OTc2NDtqOzE4NzE0OzEyMDA7ODAwOzEyMDA" alt=""></a>
-            <a href=""><img src="https://resizing.flixster.com/9IEhzeMTcX3yu3jXwveYxlf8Hws=/206x305/v1.bTsxMTE2OTc2NDtqOzE4NzE0OzEyMDA7ODAwOzEyMDA" alt=""></a>
-            <a href=""><img src="https://resizing.flixster.com/9IEhzeMTcX3yu3jXwveYxlf8Hws=/206x305/v1.bTsxMTE2OTc2NDtqOzE4NzE0OzEyMDA7ODAwOzEyMDA" alt=""></a>
-            <a href=""><img src="https://resizing.flixster.com/9IEhzeMTcX3yu3jXwveYxlf8Hws=/206x305/v1.bTsxMTE2OTc2NDtqOzE4NzE0OzEyMDA7ODAwOzEyMDA" alt=""></a>
+          <div id="movieDisplay"  class="uk-width-3-4@m "uk-grid>
+            
           </div>
           
           <aside class="uk-width-1-4@m">  
@@ -131,7 +124,7 @@
       </section>
     </main>
     <footer class="uk-text-center">
-      <p class="uk-text-small">@copy Copyright 2020.</p>
+      <p class="uk-text-small">&copy Copyright 2020.</p>
     </footer>
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" 
