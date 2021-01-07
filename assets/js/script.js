@@ -136,6 +136,8 @@ $(document).ready(function () {
     }
     $("#welcome").css("display" , "none");
     renderRcentSearch(movies);
+    console.log(movies[0]);
+    getMovie(movies[0]);
   }
   //render movie search
   function renderRcentSearch() {
