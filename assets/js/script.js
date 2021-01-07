@@ -2,12 +2,15 @@ $(document).ready(function () {
   var apikey = "trilogy";
   var movie;
   var movieUrl;
+  var movies;
 
+  //load local storage data if avalable        
+  loadData();
   //When the search button is clicked it gets the giphy and the movies
   $("#search").on("click", function (e) {
     //e.preventDefault();
-    movie = $("#name").val();
-
+    movie = $("#name").val().trim();
+    
     getGiphy(movie);
     movieUrl = "http://www.omdbapi.com/?apikey=" + apikey + "&s=" + movie;
 
@@ -17,6 +20,8 @@ $(document).ready(function () {
     }).then(function (data) {
       getDetails(data.Search[0].imdbID);
       displayMovie(data);
+      saveData(movie);
+      renderRcentSearch();
     });
   });
 
@@ -87,7 +92,6 @@ $(document).ready(function () {
 
   //render giphy in a slide show
   function renderGiphy(response) {
-    console.log(response);
     for (var i = 0; i < response.data.length; i++) {
       var image = $("<img>");
       image.attr("src", response.data[i].images.original.url);
@@ -97,6 +101,31 @@ $(document).ready(function () {
       imageli.append(image);
       $("#giphy-slideshow").append(imageli);
       $("#giphy").css("display", "block");
+    }
+  }
+//   saves data to local storage
+  function saveData(movie){
+    movies.unshift(movie);
+    localStorage.setItem("movies", JSON.stringify(movies) );
+  }
+  //loads data from local storage
+  function loadData(){
+    movies = JSON.parse(localStorage.getItem("movies"));
+    if(movies === null || movies === ""){
+        movies = [];
+        $("#recent-search").text("no history...")
+        return;
+    }
+    renderRcentSearch(movies);
+  }
+  //render movie search
+  function renderRcentSearch(){
+    $("#recent-search").text("");  
+    for (var i=0; i<movies.length; i++){
+        var movie = $("<p>");
+        movie.text(movies[i]);
+        movie.addClass ("recent-movie")
+        $("#recent-search").append(movie);
     }
   }
 });
