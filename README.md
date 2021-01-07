@@ -1,23 +1,37 @@
 # Group3
 
-This is a Website to search and display movies.
+This is a Website to search and display movies and their appropriate giphy.
 
-The search is based on the movie name or using the Rating, Genre or Year to get a list of movies to choose from
+The search is based on the movie name and/or Year to get a list of movies to choose from
 
-Here is the design
+This is the layout design of the page using wire framing.
 
-## Search based on Name
+![Page design](assets/images/g31.PNG)
 
-Searching Based on movie name will give you the movie info its rating, genre and year
+The movie is displayed with related giphy images by its side and some more related movies below it.
 
-## Display
+## Landing Page
 
-![Page_design](assets/images/movie1.PNG)
+When the web page is opened this is what is displayed.
 
-## Search based on Rating, Genre or Year
+![landing page](assets/images/g32.PNG)
 
-Searching based on movie rating, genre or year will display a list of movies
+## To search
 
-## Display
+To search for a movie click on the search button on the top right corner of the navigation bar.
 
-![Page_design](assets/images/movie2.PNG)
+![Search](assets/images/g33.PNG)
+
+- The movie can be searched by name or name and year but not only year.
+
+- Your most recent searches are stored in the recent search section where you can click on them and get the information of that movie.
+
+## Result
+
+Once you click on the search button after inputing the name and/or year
+This is the result you will get
+
+![Result](assets/images/g34.PNG)
+
+The giphy is showed beside the main display of the movie information
+If you click any of the movies in the related movies section the information of the movie is displayed at the top section of the page.

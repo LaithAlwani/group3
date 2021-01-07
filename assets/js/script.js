@@ -5,16 +5,24 @@ $(document).ready(function () {
   var movieUrl;
   var movies;
 
-  //load local storage data if avalable        
+  //load local storage data if avalable
   loadData();
   //When the search button is clicked it gets the giphy and the movies
   $("#search").on("click", function (e) {
     //e.preventDefault();
     year = $("#year").val();
     movie = $("#name").val().trim();
-    
+    console.log(movie);
+    console.log(year);
+
     getGiphy(movie);
-    movieUrl = "http://www.omdbapi.com/?apikey=" + apikey + "&s=" + movie;
+    if(parseInt(year))
+    {
+      movieUrl = "http://www.omdbapi.com/?apikey=" + apikey + "&s=" + movie + "&y=" + year;
+    }else{
+      movieUrl = "http://www.omdbapi.com/?apikey=" + apikey + "&s=" + movie;
+    }
+    
 
     $.ajax({
       url: movieUrl,
@@ -47,9 +55,7 @@ $(document).ready(function () {
       $movieSection.append($movieImdbId);
 
       $movieDisplay.append($movieSection);
-
     }
-
   }
 
   // When any movie is clicked get the details of that movie
@@ -59,10 +65,9 @@ $(document).ready(function () {
     var imdbValue = targets.nextElementSibling.textContent;
     getDetails(imdbValue);
     window.location.href = "#welcome";
-
   });
 
-// The details of the movie is been displayed
+  // The details of the movie is been displayed
   function getDetails(imdb) {
     var movieDetUrl = "http://www.omdbapi.com/?apikey=" + apikey + "&i=" + imdb;
 
@@ -70,14 +75,13 @@ $(document).ready(function () {
       url: movieDetUrl,
       method: "GET",
     }).then(function (data) {
-      console.log(data);
+      //console.log(data);
       $("#imageSrc").attr("src", data.Poster);
       $("#title").text(data.Title);
       $("#ratings").text(data.imdbRating);
       $("#genres").text(data.Genre);
       $("#years").text(data.Year);
       $("#plot").text(data.Plot);
-
     });
   }
   //pass in movie name from users input
@@ -105,29 +109,29 @@ $(document).ready(function () {
       $("#giphy").css("display", "block");
     }
   }
-//   saves data to local storage
-  function saveData(movie){
+  //   saves data to local storage
+  function saveData(movie) {
     movies.unshift(movie);
-    localStorage.setItem("movies", JSON.stringify(movies) );
+    localStorage.setItem("movies", JSON.stringify(movies));
   }
   //loads data from local storage
-  function loadData(){
+  function loadData() {
     movies = JSON.parse(localStorage.getItem("movies"));
-    if(movies === null || movies === ""){
-        movies = [];
-        $("#recent-search").text("no history...")
-        return;
+    if (movies === null || movies === "") {
+      movies = [];
+      $("#recent-search").text("no history...");
+      return;
     }
     renderRcentSearch(movies);
   }
   //render movie search
-  function renderRcentSearch(){
-    $("#recent-search").text("");  
-    for (var i=0; i<movies.length; i++){
-        var movie = $("<p>");
-        movie.text(movies[i]);
-        movie.addClass ("recent-movie")
-        $("#recent-search").append(movie);
+  function renderRcentSearch() {
+    $("#recent-search").text("");
+    for (var i = 0; i < movies.length; i++) {
+      var movie = $("<p>");
+      movie.text(movies[i]);
+      movie.addClass("recent-movie");
+      $("#recent-search").append(movie);
     }
   }
 });
