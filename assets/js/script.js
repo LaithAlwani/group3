@@ -13,14 +13,18 @@ $(document).ready(function () {
     year = $("#year").val().toLowerCase().trim();
     movie = $("#name").val().toLowerCase().trim();
 
+    getMovie(movie, year);
 
-    getGiphy(movie);
+    
+  });
+
+  function getMovie(movie, year){
     if(parseInt(year))
     {
       movieUrl = "https://www.omdbapi.com/?apikey=" + apikey + "&s=" + movie + "&y=" + year;
     }else{
       movieUrl = "https://www.omdbapi.com/?apikey=" + apikey + "&s=" + movie;
-    }e;
+    };
 
     $.ajax({
       url: movieUrl,
@@ -28,10 +32,11 @@ $(document).ready(function () {
     }).then(function (data) {
       getDetails(data.Search[0].imdbID);
       displayMovie(data);
+      getGiphy(movie);
       saveData(movie);
       renderRcentSearch();
     });
-  });
+  }
 
   // display the movie
   function displayMovie(movies) {
@@ -53,6 +58,7 @@ $(document).ready(function () {
       $movieSection.append($movieImdbId);
 
       $movieDisplay.append($movieSection);
+      $("#related-movies").css("display", "block");
     }
   }
 
@@ -62,7 +68,7 @@ $(document).ready(function () {
     var targets = e.target;
     var imdbValue = targets.nextElementSibling.textContent;
     getDetails(imdbValue);
-    window.location.href = "#welcome";
+    window.location.href = "#movie-info";
   });
 
   // The details of the movie is been displayed
@@ -80,6 +86,7 @@ $(document).ready(function () {
       $("#genres").text(data.Genre);
       $("#years").text(data.Year);
       $("#plot").text(data.Plot);
+      $("#movie-info").css("display", "flex");
     });
   }
   //pass in movie name from users input
@@ -109,6 +116,11 @@ $(document).ready(function () {
   }
   //   saves data to local storage
   function saveData(movie) {
+    for(var i=0;i <movies.length; i++){
+        if(movie === movies[i]){
+            movies.splice (i, 1);
+        }
+    }
     movies.unshift(movie);
     localStorage.setItem("movies", JSON.stringify(movies));
   }
@@ -117,19 +129,33 @@ $(document).ready(function () {
     movies = JSON.parse(localStorage.getItem("movies"));
     if (movies === null || movies === "") {
       movies = [];
+      $("#movie-info").css("display", "none");
+      $("#related-movies").css("display", "none");
       $("#recent-search").text("no history...");
       return;
     }
+    $("#welcome").css("display" , "none");
     renderRcentSearch(movies);
+    console.log(movies[0]);
+    getMovie(movies[0]);
   }
   //render movie search
   function renderRcentSearch() {
     $("#recent-search").text("");
+    if(movies.length>5){
+        movies.length = 5;
+    }
     for (var i = 0; i < movies.length; i++) {
-      var movie = $("<p>");
+      var movie = $("<a>");
       movie.text(movies[i]);
       movie.addClass("recent-movie");
+      movie.attr("href","#movie-info");
       $("#recent-search").append(movie);
     }
   }
+
+  $("#recent-search").click(function(e){
+      console.log(e.target.textContent);
+      getMovie(e.target.textContent);
+  })
 });
