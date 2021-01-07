@@ -64,7 +64,6 @@ $(document).ready(function () {
 
   // When any movie is clicked get the details of that movie
   $("#movieDisplay").on("click", function (e) {
-    console.log(e.target);
     var targets = e.target;
     var imdbValue = targets.nextElementSibling.textContent;
     getDetails(imdbValue);
@@ -79,7 +78,6 @@ $(document).ready(function () {
       url: movieDetUrl,
       method: "GET",
     }).then(function (data) {
-      //console.log(data);
       $("#imageSrc").attr("src", data.Poster);
       $("#title").text(data.Title);
       $("#ratings").text(data.imdbRating);
@@ -136,7 +134,6 @@ $(document).ready(function () {
     }
     $("#welcome").css("display" , "none");
     renderRcentSearch(movies);
-    console.log(movies[0]);
     getMovie(movies[0]);
   }
   //render movie search
@@ -155,7 +152,6 @@ $(document).ready(function () {
   }
 
   $("#recent-search").click(function(e){
-      console.log(e.target.textContent);
       getMovie(e.target.textContent);
   })
 });
