@@ -10,19 +10,17 @@ $(document).ready(function () {
   //When the search button is clicked it gets the giphy and the movies
   $("#search").on("click", function (e) {
     //e.preventDefault();
-    year = $("#year").val();
-    movie = $("#name").val().trim();
-    console.log(movie);
-    console.log(year);
+    year = $("#year").val().toLowerCase().trim();
+    movie = $("#name").val().toLowerCase().trim();
+
 
     getGiphy(movie);
     if(parseInt(year))
     {
-      movieUrl = "http://www.omdbapi.com/?apikey=" + apikey + "&s=" + movie + "&y=" + year;
+      movieUrl = "https://www.omdbapi.com/?apikey=" + apikey + "&s=" + movie + "&y=" + year;
     }else{
-      movieUrl = "http://www.omdbapi.com/?apikey=" + apikey + "&s=" + movie;
-    }
-    
+      movieUrl = "https://www.omdbapi.com/?apikey=" + apikey + "&s=" + movie;
+    }e;
 
     $.ajax({
       url: movieUrl,
@@ -69,7 +67,7 @@ $(document).ready(function () {
 
   // The details of the movie is been displayed
   function getDetails(imdb) {
-    var movieDetUrl = "http://www.omdbapi.com/?apikey=" + apikey + "&i=" + imdb;
+    var movieDetUrl = "https://www.omdbapi.com/?apikey=" + apikey + "&i=" + imdb;
 
     $.ajax({
       url: movieDetUrl,
