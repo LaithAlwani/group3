@@ -13,8 +13,6 @@ $(document).ready(function () {
     year = $("#year").val().toLowerCase().trim();
     movie = $("#name").val().toLowerCase().trim();
 
-
-    getGiphy(movie);
     if(parseInt(year))
     {
       movieUrl = "https://www.omdbapi.com/?apikey=" + apikey + "&s=" + movie + "&y=" + year;
@@ -28,6 +26,7 @@ $(document).ready(function () {
     }).then(function (data) {
       getDetails(data.Search[0].imdbID);
       displayMovie(data);
+      getGiphy(movie);
       saveData(movie);
       renderRcentSearch();
     });
@@ -53,6 +52,7 @@ $(document).ready(function () {
       $movieSection.append($movieImdbId);
 
       $movieDisplay.append($movieSection);
+      $("#related-movies").css("display", "block");
     }
   }
 
@@ -62,7 +62,7 @@ $(document).ready(function () {
     var targets = e.target;
     var imdbValue = targets.nextElementSibling.textContent;
     getDetails(imdbValue);
-    window.location.href = "#welcome";
+    window.location.href = "#movie-info";
   });
 
   // The details of the movie is been displayed
@@ -80,6 +80,7 @@ $(document).ready(function () {
       $("#genres").text(data.Genre);
       $("#years").text(data.Year);
       $("#plot").text(data.Plot);
+      $("#movie-info").css("display", "flex");
     });
   }
   //pass in movie name from users input
@@ -109,6 +110,11 @@ $(document).ready(function () {
   }
   //   saves data to local storage
   function saveData(movie) {
+    for(var i=0;i <movies.length; i++){
+        if(movie === movies[i]){
+            movies.splice (i, 1);
+        }
+    }
     movies.unshift(movie);
     localStorage.setItem("movies", JSON.stringify(movies));
   }
@@ -117,14 +123,20 @@ $(document).ready(function () {
     movies = JSON.parse(localStorage.getItem("movies"));
     if (movies === null || movies === "") {
       movies = [];
+      $("#movie-info").css("display", "none");
+      $("#related-movies").css("display", "none");
       $("#recent-search").text("no history...");
       return;
     }
+    $("#welcome").css("display" , "none");
     renderRcentSearch(movies);
   }
   //render movie search
   function renderRcentSearch() {
     $("#recent-search").text("");
+    if(movies.length>5){
+        movies.length = 5;
+    }
     for (var i = 0; i < movies.length; i++) {
       var movie = $("<p>");
       movie.text(movies[i]);
