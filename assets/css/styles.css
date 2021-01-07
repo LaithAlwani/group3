@@ -6,9 +6,17 @@
 }
 .recent-movie{
     margin:0;
-    padding-left: 5px;
-    border: 1px solid lightgray;
+    padding: 10px;
+    border: 1px solid gray;
 }
+.recent-movie:hover{
+    border: 1px solid white;
+    cursor: pointer;
+}
+.recent-movie:active{
+    background-color: rgb(80, 80, 80);
+}
+
 .uk-card h3{
     background-color: lightgray;
     margin-bottom: 0;
