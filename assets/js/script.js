@@ -13,12 +13,18 @@ $(document).ready(function () {
     year = $("#year").val().toLowerCase().trim();
     movie = $("#name").val().toLowerCase().trim();
 
+    getMovie(movie, year);
+
+    
+  });
+
+  function getMovie(movie, year){
     if(parseInt(year))
     {
       movieUrl = "https://www.omdbapi.com/?apikey=" + apikey + "&s=" + movie + "&y=" + year;
     }else{
       movieUrl = "https://www.omdbapi.com/?apikey=" + apikey + "&s=" + movie;
-    }e;
+    };
 
     $.ajax({
       url: movieUrl,
@@ -30,7 +36,7 @@ $(document).ready(function () {
       saveData(movie);
       renderRcentSearch();
     });
-  });
+  }
 
   // display the movie
   function displayMovie(movies) {
@@ -138,10 +144,16 @@ $(document).ready(function () {
         movies.length = 5;
     }
     for (var i = 0; i < movies.length; i++) {
-      var movie = $("<p>");
+      var movie = $("<a>");
       movie.text(movies[i]);
       movie.addClass("recent-movie");
+      movie.attr("href","#movie-info");
       $("#recent-search").append(movie);
     }
   }
+
+  $("#recent-search").click(function(e){
+      console.log(e.target.textContent);
+      getMovie(e.target.textContent);
+  })
 });

@@ -5,6 +5,7 @@
     margin: auto 10px;
 }
 .recent-movie{
+    display: block;
     margin:0;
     padding: 10px;
     border: 1px solid gray;
@@ -12,6 +13,7 @@
 .recent-movie:hover{
     border: 1px solid white;
     cursor: pointer;
+    text-decoration: none;
 }
 .recent-movie:active{
     background-color: rgb(80, 80, 80);
