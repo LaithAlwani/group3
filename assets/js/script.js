@@ -1,12 +1,14 @@
 $(document).ready(function () {
   var apikey = "trilogy";
   var movie;
+  var year;
   var movieUrl;
 
   //When the search button is clicked it gets the giphy and the movies
   $("#search").on("click", function (e) {
     //e.preventDefault();
     movie = $("#name").val();
+    year = $("#year").val();
 
     getGiphy(movie);
     movieUrl = "http://www.omdbapi.com/?apikey=" + apikey + "&s=" + movie;
