@@ -1,7 +1,8 @@
 #giphy{
-    width: 50%;
+    width: 25%;
     margin: 2em auto;
     display: none;
+    margin: auto 10px;
 }
 .recent-movie{
     margin:0;
@@ -30,4 +31,12 @@
 #imageSrc {
     width: 240px;
     height: 344px;
+}
+/* media Query */
+
+@media only screen  and (max-width:960px){
+    #giphy{
+        width: 100%;
+        margin:10px auto ;
+    }
 }

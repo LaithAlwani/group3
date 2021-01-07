@@ -87,6 +87,7 @@ $(document).ready(function () {
 
   //render giphy in a slide show
   function renderGiphy(response) {
+    console.log(response);
     for (var i = 0; i < response.data.length; i++) {
       var image = $("<img>");
       image.attr("src", response.data[i].images.original.url);

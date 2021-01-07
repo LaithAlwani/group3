@@ -38,32 +38,11 @@
         <div class="uk-offcanvas-bar uk-text-center">
           <button class="uk-offcanvas-close" type="button" uk-close></button>
           <h3> Search bar</h3>
-          <form >
+          <form class="uk-margin">
             
             <label for="">Movie Name</label>
             <input type="text" id="name" class="uk-input"/>
-          
-            <label for="">Genre</label>
-            <select type="text" id="genre" class="uk-select ">
-              <option value="" disabled selected>Choose a Genre</option>
-              <option value="Action">Action</option>
-              <option value="Adventure">Adventure</option>
-              <option value="Comedy">Comedy</option>
-              <option value="Drama">Drama</option>
-              <option value="Horror">Horror</option>
-              <option value="Musical">Musical</option>
-              <option value="Thriller">Thriller</option>
-            </select> 
-          
-            <label for="">Rating</label>
-            <select type="text" id="rating" class="uk-select ">
-              <option value="" disabled selected>Choose Value</option>
-              <option value="6">6+</option>
-              <option value="7">7+</option>
-              <option value="8">8+</option>
-              <option value="9">9+</option>
-            </select>
-  
+            
             <label for="">Year</label>
             <input type="text" id="year"class="uk-input "/>  
             
@@ -72,11 +51,20 @@
             </div>
             
           </form>
+
+          <div>
+            <h3 id="recent-search" class="uk-text-center">Recent Search</h3>
+            <p class="recent-movie">Movie</p>
+            <p class="recent-movie">Movie</p>
+            <p class="recent-movie">Movie</p>
+            <p class="recent-movie">Movie</p>
+            <p class="recent-movie">Movie</p>
+          </div>
         </div>
-      
       </section>
 
-      <section id="movie-info" class="uk-margin uk-grid-collapse" uk-grid>
+      <section uk-grid>
+        <main id="movie-info" class="uk-margin  uk-width-3-4@m" uk-grid>
           <div class="uk-width-2-5@s uk-text-center">
             <img id="imageSrc"  alt="movie_poster" />
           </div>
@@ -89,36 +77,27 @@
             <p id="plot">
              
             </p>
-          </div>  
+          </div>   
+        </main>
+        <aside id="giphy" class="uk-width-1-4@m">
+          <div class="uk-position-relative uk-visible-toggle" tabindex="-1" uk-slideshow="autoplay:true; autoplay-interval:2000">
+  
+            <ul id="giphy-slideshow" class="uk-slideshow-items"></ul>
+        
+            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+        
+          </div>
+        </aside>
+      
       </section>
+      
       <!-- giphy-slideshow -->
-      <section id="giphy">
-        <div class="uk-position-relative uk-visible-toggle" tabindex="-1" uk-slideshow="autoplay:true; autoplay-interval:3000">
-
-          <ul id="giphy-slideshow" class="uk-slideshow-items"></ul>
       
-          <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
-          <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
-      
-        </div>
-      </section>
       <hr>
       <section class="uk-text-center">
         <h3>Suggested Movies</h3>
-        <div class="  uk-text-center uk-margin" uk-grid>
-          <div id="movieDisplay"  class="uk-width-3-4@m "uk-grid>
-            
-          </div>
-          
-          <aside class="uk-width-1-4@m">  
-            <h3 class="uk-text-center">Recent Search</h3>
-            <p class="recent-movie">Movie</p>
-            <p class="recent-movie">Movie</p>
-            <p class="recent-movie">Movie</p>
-            <p class="recent-movie">Movie</p>
-            <p class="recent-movie">Movie</p>
-          </aside>
-        </div>
+        <div id="movieDisplay" class=" uk-child-width-1-3@s uk-child-width-1-4@m uk-text-center uk-margin" uk-grid></div>
 
         
       </section>
