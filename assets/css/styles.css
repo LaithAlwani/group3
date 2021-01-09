@@ -1,3 +1,11 @@
+#welcome{
+    margin-bottom: 50px;
+}
+#welcome a{
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 1.5em;
+}
 #giphy{
     width: 25%;
     margin: 2em auto;
@@ -9,6 +17,7 @@
     margin:0;
     padding: 10px;
     border: 1px solid gray;
+    text-transform: capitalize;
 }
 .recent-movie:hover{
     border: 1px solid white;
@@ -17,12 +26,6 @@
 }
 .recent-movie:active{
     background-color: rgb(80, 80, 80);
-}
-
-.uk-card h3{
-    background-color: lightgray;
-    margin-bottom: 0;
-    padding:5px
 }
 
 #movieDisplay section img{

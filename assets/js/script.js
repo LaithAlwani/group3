@@ -4,6 +4,7 @@ $(document).ready(function () {
   var year;
   var movieUrl;
   var movies;
+  var searchBar = $("#search-bar");
 
   //load local storage data if avalable
   loadData();
@@ -12,9 +13,12 @@ $(document).ready(function () {
     //e.preventDefault();
     year = $("#year").val().toLowerCase().trim();
     movie = $("#name").val().toLowerCase().trim();
+    if(movie !=""){
+      //UIkit.offcanvas(searchBar).hide();
+    }
 
     getMovie(movie, year);
-
+    $()
     
   });
 
@@ -132,8 +136,7 @@ $(document).ready(function () {
       $("#recent-search").text("no history...");
       return;
     }
-    $("#welcome").css("display" , "none");
-    renderRcentSearch(movies);
+    renderRcentSearch();
     getMovie(movies[0]);
   }
   //render movie search
@@ -146,12 +149,16 @@ $(document).ready(function () {
       var movie = $("<a>");
       movie.text(movies[i]);
       movie.addClass("recent-movie");
-      movie.attr("href","#movie-info");
       $("#recent-search").append(movie);
     }
   }
 
   $("#recent-search").click(function(e){
       getMovie(e.target.textContent);
+      //UIkit.offcanvas(searchBar).hide()
+  })
+
+  $("#name").click(function(){
+    $("#name").val("");
   })
 });
