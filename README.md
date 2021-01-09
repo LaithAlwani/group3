@@ -14,11 +14,13 @@ The movie is displayed with related giphy images by its side and some more relat
 
 When the web page is opened this is what is displayed.
 
+To search for a movie click on the blue search button.
+
 ![landing page](assets/images/g32.PNG)
 
 ## To search
 
-To search for a movie click on the search button on the top right corner of the navigation bar.
+Input the name of the movie in the Movie Name search field, and/or the year in the year search field. 
 
 ![Search](assets/images/g33.PNG)
 
