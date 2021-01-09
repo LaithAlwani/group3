@@ -1,4 +1,4 @@
-# Group3
+# Movie Search
 
 This is a Website to search and display movies and their appropriate giphy.
 
@@ -35,3 +35,5 @@ This is the result you will get
 
 The giphy is showed beside the main display of the movie information
 If you click any of the movies in the related movies section the information of the movie is displayed at the top section of the page.
+
+Visit [Movie Search](https://laithalwani.github.io/movie-search/) and check it out!
