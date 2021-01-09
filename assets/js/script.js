@@ -11,7 +11,7 @@ $(document).ready(function () {
   console.log(screen.width);
   //When the search button is clicked it gets the giphy and the movies
   $("#search").on("click", function (e) {
-    //e.preventDefault();
+    e.preventDefault();
     year = $("#year").val().toLowerCase().trim();
     movie = $("#name").val().toLowerCase().trim();
     if (movie != "") {
