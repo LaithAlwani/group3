@@ -14,11 +14,11 @@ $(document).ready(function () {
     year = $("#year").val().toLowerCase().trim();
     movie = $("#name").val().toLowerCase().trim();
     if(movie !=""){
-      // UIkit.offcanvas(searchBar).hide();
+      //UIkit.offcanvas(searchBar).hide();
     }
 
     getMovie(movie, year);
-
+    $()
     
   });
 
@@ -136,7 +136,6 @@ $(document).ready(function () {
       $("#recent-search").text("no history...");
       return;
     }
-    $("#welcome").css("display" , "none");
     renderRcentSearch();
     getMovie(movies[0]);
   }
@@ -156,7 +155,7 @@ $(document).ready(function () {
 
   $("#recent-search").click(function(e){
       getMovie(e.target.textContent);
-      UIkit.offcanvas(searchBar).hide()
+      //UIkit.offcanvas(searchBar).hide()
   })
 
   $("#name").click(function(){
