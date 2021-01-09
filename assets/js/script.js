@@ -8,27 +8,34 @@ $(document).ready(function () {
 
   //load local storage data if avalable
   loadData();
+  console.log(screen.width);
   //When the search button is clicked it gets the giphy and the movies
   $("#search").on("click", function (e) {
     //e.preventDefault();
     year = $("#year").val().toLowerCase().trim();
     movie = $("#name").val().toLowerCase().trim();
-    if(movie !=""){
-      //UIkit.offcanvas(searchBar).hide();
+    if (movie != "") {
+      if (screen.width < 500) {
+        UIkit.offcanvas(searchBar).hide();
+      }
     }
 
     getMovie(movie, year);
-    $()
-    
+    $();
   });
 
-  function getMovie(movie, year){
-    if(parseInt(year))
-    {
-      movieUrl = "https://www.omdbapi.com/?apikey=" + apikey + "&s=" + movie + "&y=" + year;
-    }else{
+  function getMovie(movie, year) {
+    if (parseInt(year)) {
+      movieUrl =
+        "https://www.omdbapi.com/?apikey=" +
+        apikey +
+        "&s=" +
+        movie +
+        "&y=" +
+        year;
+    } else {
       movieUrl = "https://www.omdbapi.com/?apikey=" + apikey + "&s=" + movie;
-    };
+    }
 
     $.ajax({
       url: movieUrl,
@@ -76,7 +83,8 @@ $(document).ready(function () {
 
   // The details of the movie is been displayed
   function getDetails(imdb) {
-    var movieDetUrl = "https://www.omdbapi.com/?apikey=" + apikey + "&i=" + imdb;
+    var movieDetUrl =
+      "https://www.omdbapi.com/?apikey=" + apikey + "&i=" + imdb;
 
     $.ajax({
       url: movieDetUrl,
@@ -118,10 +126,10 @@ $(document).ready(function () {
   }
   //   saves data to local storage
   function saveData(movie) {
-    for(var i=0;i <movies.length; i++){
-        if(movie === movies[i]){
-            movies.splice (i, 1);
-        }
+    for (var i = 0; i < movies.length; i++) {
+      if (movie === movies[i]) {
+        movies.splice(i, 1);
+      }
     }
     movies.unshift(movie);
     localStorage.setItem("movies", JSON.stringify(movies));
@@ -142,8 +150,8 @@ $(document).ready(function () {
   //render movie search
   function renderRcentSearch() {
     $("#recent-search").text("");
-    if(movies.length>5){
-        movies.length = 5;
+    if (movies.length > 5) {
+      movies.length = 5;
     }
     for (var i = 0; i < movies.length; i++) {
       var movie = $("<a>");
@@ -153,12 +161,14 @@ $(document).ready(function () {
     }
   }
 
-  $("#recent-search").click(function(e){
-      getMovie(e.target.textContent);
-      //UIkit.offcanvas(searchBar).hide()
-  })
+  $("#recent-search").click(function (e) {
+    getMovie(e.target.textContent);
+    if (screen.width < 500) {
+      UIkit.offcanvas(searchBar).hide();
+    }
+  });
 
-  $("#name").click(function(){
+  $("#name").click(function () {
     $("#name").val("");
-  })
+  });
 });
