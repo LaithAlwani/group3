@@ -14,6 +14,9 @@
     <title>Movie App</title>
   </head>
   <body >
+    <div id="wrapper">
+
+    
     <!-- Hearder -->
     <header class="uk-margin" uk-navbar>
       <div class="uk-nabar-left">
@@ -34,11 +37,11 @@
         <a class="uk-button uk-button-primary uk-button-large" uk-toggle="target: #search-bar">search</a>
       </section>
       <!-- off-canvas search menu -->
-      <section id="search-bar" uk-offcanvas="overlay:true; mode:reveal" uk-offcanvas>
+      <section id="search-bar" uk-offcanvas="mode:reveal" uk-offcanvas>
         <div class="uk-offcanvas-bar uk-text-center">
           <button class="uk-offcanvas-close" type="button" uk-close></button>
           <h3> Search bar</h3>
-          <form class="uk-margin">
+          <form id="search-from" class="uk-margin">
             <div class="uk-margin">
               <label for="">Movie Name</label>
               <input type="text" id="name" class="uk-input"  placeholder="(required)" required/>
@@ -78,7 +81,7 @@
         </main>
          <!-- giphy-slideshow -->
         <aside id="giphy" class="uk-width-1-4@m">
-          <div class="uk-position-relative uk-visible-toggle" tabindex="-1" uk-slideshow="autoplay:true; autoplay-interval:2000">
+          <div class="uk-position-relative uk-visible-toggle" tabindex="-1" uk-slideshow="autoplay: true; autoplay-interval:3000">
   
             <ul id="giphy-slideshow" class="uk-slideshow-items"></ul>
         
@@ -98,9 +101,10 @@
       </section>
 
     </main>
+  </div>
     <!-- footer -->
     <footer class="uk-text-center">
-      <p class="uk-text-small">&copy Copyright 2020.</p>
+      <p class="uk-text-small">&copy Copyright 2021</p>
     </footer>
 
     <!-- JQuery -->
