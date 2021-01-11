@@ -5,10 +5,10 @@ $(document).ready(function () {
   var movieUrl;
   var movies;
   var searchBar = $("#search-bar");
+  var name = $("#name")
 
   //load local storage data if avalable
   loadData();
-  console.log(screen.width);
   //When the search button is clicked it gets the giphy and the movies
   $("#search").on("click", function (e) {
     e.preventDefault();
@@ -21,7 +21,6 @@ $(document).ready(function () {
     }
 
     getMovie(movie, year);
-    $();
   });
 
   function getMovie(movie, year) {
