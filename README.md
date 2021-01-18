@@ -38,4 +38,15 @@ This is the result you will get
 The giphy is showed beside the main display of the movie information
 If you click any of the movies in the related movies section the information of the movie is displayed at the top section of the page.
 
+## Technologies:
+* Html
+* CSS /UIKit
+* JavaScript
+* Ghiphy API
+* Open Movie Data API
+
 Visit [Movie Search](https://laithalwani.github.io/movie-search/) and check it out!
+
+For more information please contact me at laithalwani@gmail.com or [John Jegede](https://github.com/johnjegede).
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
